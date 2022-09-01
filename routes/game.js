@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const { v4: uuid } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
+
+function createNewGame(req, res) {
+    const newGameId = uuidv4();
+    res.send(newGameId);
+}
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
-});
+router.get('/newGame', createNewGame);
 
-module.exports = router;
+module.exports = { router, createNewGame };
