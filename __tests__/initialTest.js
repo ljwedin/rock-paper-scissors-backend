@@ -1,4 +1,5 @@
-const { createNewGame } = require('../routes/game');
+const gameRouter = require('../routes/game');
+const createNewGame = gameRouter.createNewGame;
 
 describe('Game router', function () {
     test('sends a string (with and uuid) back when connected to', () => {
