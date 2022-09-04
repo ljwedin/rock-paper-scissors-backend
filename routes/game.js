@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 const { check, body } = require('express-validator');
 const { createNewGame } = require('../middleware/createNewGame');
 const { addPlayer } = require('../middleware/addPlayer');
@@ -54,4 +55,4 @@ router.post(
     }
 );
 
-module.exports = { router: router, createNewGame: createNewGame };
+module.exports = router;

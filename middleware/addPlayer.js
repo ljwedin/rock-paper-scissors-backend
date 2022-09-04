@@ -17,6 +17,12 @@ function addPlayer(req, res, games) {
         });
     }
 
+    if (req.body.name === games[gameId].playerOne.name) {
+        return res.status(400).json({
+            error: 'Name already in use by player one',
+        });
+    }
+
     games[gameId].playerTwo = {
         name: req.body.name,
         move: '',

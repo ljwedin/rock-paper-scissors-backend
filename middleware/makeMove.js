@@ -6,7 +6,7 @@ function makeMove(req, res, games) {
     if (!errors.isEmpty()) {
         return res.status(400).json({
             success: false,
-            errors: errors.array(),
+            error: errors.array(),
         });
     }
 
@@ -43,7 +43,9 @@ function makeMove(req, res, games) {
         }
         return res.send('Move registered');
     } else {
-        return res.send('Move already registered');
+        return res.status(400).json({
+            error: 'Move already registered',
+        });
     }
 }
 
