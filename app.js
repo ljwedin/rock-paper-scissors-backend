@@ -6,7 +6,6 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 
 const gameRouter = require('./routes/game');
-const testCacheRouter = require('./routes/testCache');
 
 var app = express();
 
@@ -23,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', gameRouter.router);
-app.use('/testCache', testCacheRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
