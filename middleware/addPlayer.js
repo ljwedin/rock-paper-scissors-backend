@@ -29,7 +29,8 @@ function addPlayer(req, res, games) {
         isWinner: false,
     };
 
-    res.send(req.body.name + ' has joined the game');
+    // res.send(req.body.name + ' has joined the game');
+    res.send(games[gameId]);
 }
 
 module.exports = { addPlayer };
