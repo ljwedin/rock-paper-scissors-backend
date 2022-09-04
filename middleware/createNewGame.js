@@ -24,7 +24,7 @@ function createNewGame(req, res, games) {
             isWinner: false,
         },
         gameIsTied: false,
-        gameFinished: false,
+        gameIsFinished: false,
     };
 
     games[newGameId] = newGame;
