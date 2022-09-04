@@ -37,7 +37,7 @@ function makeMove(req, res, games) {
     }
 
     if (!games[id][player].move) {
-        games[id][player].move = req.body.move;
+        games[id][player].move = req.body.move.toLowerCase();
         if (games[id].playerOne.move && games[id].playerTwo.move) {
             games[id] = playGame(games[id]);
         }

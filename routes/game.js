@@ -9,6 +9,18 @@ const { makeMove } = require('../middleware/makeMove');
 
 let games = {};
 
+function isValidMove(value) {
+    if (
+        value.toLowerCase() === 'rock' ||
+        value.toLowerCase() === 'paper' ||
+        value.toLowerCase() === 'scissors'
+    ) {
+        return true;
+    } else {
+        throw new Error('Not a valid move');
+    }
+}
+
 router.post(
     '/newGame',
     body('name').isLength({ min: 1, max: 100 }),
@@ -30,15 +42,7 @@ router.post(
     '/:id/move',
     body('name').isLength({ min: 1, max: 100 }),
     body('move').custom((value) => {
-        if (
-            value.toLowerCase() === 'rock' ||
-            value.toLowerCase() === 'paper' ||
-            value.toLowerCase() === 'scissors'
-        ) {
-            return true;
-        } else {
-            throw new Error('Not a valid move');
-        }
+        return isValidMove(value);
     }),
     check('id').isUUID(4),
     (req, res) => {
