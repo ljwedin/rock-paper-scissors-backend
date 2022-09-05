@@ -1,18 +1,18 @@
-# Rock paper scissors
+# **Rock paper scissors**
 
-### Introduction
+### **Introduction**
 
 This game is made as a code test and meant to be played using Postman. Starting the server locally enables the game to be played on one system as long as the server is running. The purpose of the game is to play rock-paper-scissors with either one winner or a tied result.
 
 ---
 
-### Tech
+### **Tech**
 
-This project uses Express as a base, jest for testing, express-validator for validation and can be used with Postman to make requests.
+This project uses Express (initiated with express-generator) as a base, jest for testing, express-validator for validation and can be used with Postman to make requests.
 
 ---
 
-### Installation
+### **Installation**
 
 To install the neccessary packages, run the command:
 `npm install`
@@ -22,9 +22,11 @@ To start the server, run the command:
 
 ---
 
-## Playing the game
+## **Playing the game**
 
 Requests by players are made with the header "Content-Type": "application/json" and body text in JSON format.
+
+All requests use **POST** method.
 
 Using Postman or other software to make requests, player one initializes a game when the server is running by visiting `localhost:3000/newGame` providing a name key and value in the body of the request. If a game is created successfully, a game ID is sent back from the server.
 
@@ -36,12 +38,12 @@ Both players can then see the outcome of the game by visiting `localhost:3000/in
 
 ---
 
-### Testing
+### **Testing**
 
-Testing has been set up for the game logic in case of change of parameters, variables etc. No further tests are used given the time constraint for the project.
+Testing has been set up for the game logic in case of change of parameters, variables etc. No further tests are used given the time constraint for the project, but practical tests would mock games or test the req/res chain for game playing.
 
 ---
 
-### Validation
+### **Validation**
 
 Input from players, and game IDs, are validated throughout the application. Error messages are sent back to the player to help solve issues that are not due to faulty URLs or server not being online.
