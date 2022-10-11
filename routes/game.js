@@ -9,6 +9,9 @@ const { makeMove } = require('../middleware/makeMove');
 
 let games = {};
 
+// Göra all validering innan middleware
+
+// Flytta ut till egen fil
 function isValidMove(value) {
     if (
         value.toLowerCase() === 'rock' ||
@@ -21,6 +24,7 @@ function isValidMove(value) {
     }
 }
 
+// Bara game ( '/' ) borde starta nytt spel, lägga till spelare 1 bör vara egen endpoint typ /:id/addPlayer
 router.post(
     '/newGame',
     body('name').isLength({ min: 1, max: 100 }),
@@ -29,6 +33,7 @@ router.post(
     }
 );
 
+// Tydligare namn, typ addPlayer? Two? JoinGame?
 router.post(
     '/:id/join',
     body('name').isLength({ min: 1, max: 100 }),
@@ -50,6 +55,7 @@ router.post(
     }
 );
 
+// GET
 router.post(
     '/:id/getGameResult',
     body('name').isLength({ min: 1, max: 100 }),

@@ -1,3 +1,7 @@
+// Enums
+// Bryt ut i mindre funktioner
+// Om man lägger till möjlighet till rematch - flytta game.gameIsFinished = true
+
 function playGame(game) {
     if (game.playerOne.move === 'rock') {
         if (game.playerTwo.move === 'scissors') {
